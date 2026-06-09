@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amarena Healthy — Comida con Propósito</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════ PRELOADER ═══════════════════════════════ -->
+  <div id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-leaf">🌿</div>
+      <p class="preloader-text">ama<span>rena</span></p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════ CURSOR PERSONALIZADO ════════════════════ -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ═══════════════════════════════ NAVBAR ══════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <a href="#" class="nav-logo">ama<span>rena</span></a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#menu">Menú</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+      <li>
+        <a href="https://wa.me/50432749791?text=Hola%20Amarena%2C%20quiero%20hacer%20un%20pedido%20🌿"
+           class="btn-nav" target="_blank" rel="noopener">Pedir Ahora</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ═══════════════════════════════ HERO ════════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <!-- Elementos parallax de fondo -->
+    <div class="hero-bg-shapes">
+      <div class="shape shape-circle" data-speed="0.3"></div>
+      <div class="shape shape-blob" data-speed="0.5"></div>
+    </div>
+
+    <!-- Ingredientes flotantes -->
+    <div class="floating-ingredients" aria-hidden="true">
+      <span class="ing ing-1">🫐</span>
+      <span class="ing ing-2">🥑</span>
+      <span class="ing ing-3">☕</span>
+      <span class="ing ing-4">🍓</span>
+      <span class="ing ing-5">🌿</span>
+      <span class="ing ing-6">🥜</span>
+    </div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow" id="heroEyebrow">Café 100% Hondureño · Siguatepeque</p>
+
+      <h1 class="hero-title" id="heroTitle">
+        <span class="title-line">Comida con</span>
+        <em class="title-accent">propósito.</em>
+      </h1>
+
+      <p class="hero-subtitle" id="heroSubtitle">
+        Bowls, smoothies, sándwiches y café de especialidad.
+        Ingredientes reales para una vida con intención.
+      </p>
+
+      <div class="hero-cta" id="heroCta">
+        <a href="#menu" class="btn-primary">Ver el Menú</a>
+        <a href="https://wa.me/50432749791?text=Hola%20Amarena%2C%20quiero%20hacer%20un%20pedido%20🌿"
+           class="btn-secondary" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.554 4.118 1.521 5.845L0 24l6.335-1.501A11.951 11.951 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.01-1.378l-.36-.213-3.761.891.927-3.665-.234-.376A9.793 9.793 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182 17.42 2.182 21.818 6.58 21.818 12c0 5.42-4.398 9.818-9.818 9.818z"/>
+          </svg>
+          Pedir por WhatsApp
+        </a>
+      </div>
+
+      <div class="hero-stats" id="heroStats">
+        <div class="stat">
+          <strong>100%</strong>
+          <span>Hondureño</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <strong>Café</strong>
+          <span>de especialidad</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <strong>Fresh</strong>
+          <span>Todos los días</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-image-container" id="heroImage">
+      <div class="hero-image-frame">
+        <!-- Placeholder visual con gradiente orgánico -->
+        <div class="hero-image-placeholder">
+          <div class="hero-blob-img"></div>
+          <div class="floating-badge badge-top">
+            <span>☕</span> Café de<br>Especialidad
+          </div>
+          <div class="floating-badge badge-bottom">
+            <span>🌿</span> Sin gluten<br>disponible
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ MENÚ DESTACADO ═══════════════════════════ -->
+  <section class="menu-section" id="menu">
+    <div class="section-header">
+      <p class="section-eyebrow">Lo que más amamos</p>
+      <h2 class="section-title">Nuestros <em>Favoritos</em></h2>
+    </div>
+
+    <div class="menu-grid">
+
+      <div class="menu-card" data-category="bowl">
+        <div class="menu-card-img">
+          <div class="menu-img-placeholder bowl-img">
+            <span class="menu-emoji">🫙</span>
+          </div>
+          <div class="menu-tag">⭐ Más Pedido</div>
+        </div>
+        <div class="menu-card-body">
+          <h3>Açaí Power Bowl</h3>
+          <p>Base de açaí, granola artesanal, frutas frescas, miel hondureña y semillas de chía.</p>
+          <div class="menu-card-footer">
+            <span class="menu-badges">
+              <span class="badge-item">🌱 Vegano</span>
+              <span class="badge-item">💪 Proteína</span>
+            </span>
+            <button class="btn-order" onclick="openWhatsapp('Açaí Power Bowl')">Pedir</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card featured" data-category="coffee">
+        <div class="menu-card-img">
+          <div class="menu-img-placeholder coffee-img">
+            <span class="menu-emoji">☕</span>
+          </div>
+          <div class="menu-tag">🏆 Firma</div>
+        </div>
+        <div class="menu-card-body">
+          <h3>Latte Amarena</h3>
+          <p>Espresso hondureño de altura, leche de almendras y nuestro jarabe de cereza artesanal.</p>
+          <div class="menu-card-footer">
+            <span class="menu-badges">
+              <span class="badge-item">☕ Origen HN</span>
+              <span class="badge-item">🍒 Artesanal</span>
+            </span>
+            <button class="btn-order" onclick="openWhatsapp('Latte Amarena')">Pedir</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card" data-category="sandwich">
+        <div class="menu-card-img">
+          <div class="menu-img-placeholder sandwich-img">
+            <span class="menu-emoji">🥪</span>
+          </div>
+          <div class="menu-tag">🔥 Trending</div>
+        </div>
+        <div class="menu-card-body">
+          <h3>Sándwich Verde</h3>
+          <p>Pan artesanal, aguacate, pechuga a la plancha, rúcula fresca y aderezo de limón.</p>
+          <div class="menu-card-footer">
+            <span class="menu-badges">
+              <span class="badge-item">🥑 Fresco</span>
+              <span class="badge-item">⚡ Energía</span>
+            </span>
+            <button class="btn-order" onclick="openWhatsapp('Sándwich Verde')">Pedir</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card" data-category="smoothie">
+        <div class="menu-card-img">
+          <div class="menu-img-placeholder smoothie-img">
+            <span class="menu-emoji">🥤</span>
+          </div>
+          <div class="menu-tag">✨ Wellness</div>
+        </div>
+        <div class="menu-card-body">
+          <h3>Green Goddess Smoothie</h3>
+          <p>Espinaca baby, manzana verde, jengibre, pepino y proteína de vainilla.</p>
+          <div class="menu-card-footer">
+            <span class="menu-badges">
+              <span class="badge-item">🌿 Detox</span>
+              <span class="badge-item">💚 Sin azúcar</span>
+            </span>
+            <button class="btn-order" onclick="openWhatsapp('Green Goddess Smoothie')">Pedir</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA ver menú completo -->
+    <div class="menu-cta-full">
+      <a href="https://wa.me/50432749791?text=Hola%2C%20¿me%20pueden%20compartir%20el%20menú%20completo%3F"
+         class="btn-outline" target="_blank" rel="noopener">Ver menú completo → WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ BUILD YOUR BOWL ═══════════════════════════ -->
+  <section class="builder-section" id="builder">
+    <div class="builder-inner">
+      <div class="builder-text">
+        <p class="section-eyebrow">Personaliza</p>
+        <h2 class="section-title">Arma tu<br><em>Bowl Perfecto</em></h2>
+        <p>Elige tu base, toppings y extras. Cuando tengas tu creación, mándanosla directo por WhatsApp.</p>
+      </div>
+
+      <div class="builder-ui">
+        <div class="builder-preview" id="builderPreview">
+          <div class="bowl-visual" id="bowlVisual">
+            <div class="bowl-emoji-stack" id="bowlStack">
+              <span class="bowl-base-emoji">🫙</span>
+            </div>
+          </div>
+          <p class="bowl-summary" id="bowlSummary">Empieza eligiendo una base...</p>
+        </div>
+
+        <div class="builder-steps">
+          <!-- Paso 1: Base -->
+          <div class="builder-step active" data-step="1">
+            <h4>1. Elige tu base</h4>
+            <div class="option-chips" id="baseOptions">
+              <button class="chip" data-value="Açaí" data-emoji="🫙">🫙 Açaí</button>
+              <button class="chip" data-value="Avena" data-emoji="🌾">🌾 Avena</button>
+              <button class="chip" data-value="Yogurt" data-emoji="🥛">🥛 Yogurt</button>
+              <button class="chip" data-value="Quinoa" data-emoji="🍚">🍚 Quinoa</button>
+            </div>
+          </div>
+
+          <!-- Paso 2: Frutas -->
+          <div class="builder-step" data-step="2">
+            <h4>2. Frutas (máx. 3)</h4>
+            <div class="option-chips" id="fruitOptions">
+              <button class="chip multi" data-value="Mango" data-emoji="🥭">🥭 Mango</button>
+              <button class="chip multi" data-value="Fresas" data-emoji="🍓">🍓 Fresas</button>
+              <button class="chip multi" data-value="Arándanos" data-emoji="🫐">🫐 Arándanos</button>
+              <button class="chip multi" data-value="Banano" data-emoji="🍌">🍌 Banano</button>
+              <button class="chip multi" data-value="Kiwi" data-emoji="🥝">🥝 Kiwi</button>
+            </div>
+          </div>
+
+          <!-- Paso 3: Toppings -->
+          <div class="builder-step" data-step="3">
+            <h4>3. Toppings</h4>
+            <div class="option-chips" id="toppingOptions">
+              <button class="chip multi" data-value="Granola" data-emoji="🌰">🌰 Granola</button>
+              <button class="chip multi" data-value="Chía" data-emoji="⚫">⚫ Chía</button>
+              <button class="chip multi" data-value="Coco rallado" data-emoji="🥥">🥥 Coco</button>
+              <button class="chip multi" data-value="Almendras" data-emoji="🥜">🥜 Almendras</button>
+              <button class="chip multi" data-value="Miel" data-emoji="🍯">🍯 Miel</button>
+            </div>
+          </div>
+
+          <button class="btn-primary btn-build" id="btnSendBowl">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/>
+            </svg>
+            Enviar mi Bowl por WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ NOSOTROS ═════════════════════════════════ -->
+  <section class="about-section" id="nosotros">
+    <div class="about-deco" aria-hidden="true">
+      <span>🌿</span><span>☕</span><span>🫐</span>
+    </div>
+
+    <div class="about-inner">
+      <div class="about-image-side">
+        <div class="about-img-frame">
+          <div class="about-img-placeholder">
+            <div class="about-stamp">ama<br>rena</div>
+          </div>
+        </div>
+        <div class="about-tag-float">
+          <span>📍</span> Siguatepeque, Honduras
+        </div>
+        <div class="about-tag-float about-tag-2">
+          <span>🏠</span> Baires Padel Club
+        </div>
+      </div>
+
+      <div class="about-text-side">
+        <p class="section-eyebrow">Nuestra historia</p>
+        <h2 class="section-title">Comida <em>real</em><br>para gente <em>real.</em></h2>
+        <p class="about-body">
+          Amarena nació de la convicción de que comer bien no debe ser complicado.
+          Somos un café de especialidad 100% hondureño ubicado en Siguatepeque,
+          donde cada plato se prepara con ingredientes cuidadosamente elegidos
+          y mucho cariño.
+        </p>
+        <p class="about-body">
+          Nuestra misión es simple: darte energía real, sabores que inspiren
+          y un espacio donde sentirte bien sea la norma.
+        </p>
+
+        <div class="about-values">
+          <div class="value-item">
+            <span class="value-icon">🌱</span>
+            <div>
+              <strong>Ingredientes reales</strong>
+              <span>Sin ultraprocesados</span>
+            </div>
+          </div>
+          <div class="value-item">
+            <span class="value-icon">🇭🇳</span>
+            <div>
+              <strong>Producto local</strong>
+              <span>Café hondureño de altura</span>
+            </div>
+          </div>
+          <div class="value-item">
+            <span class="value-icon">💚</span>
+            <div>
+              <strong>Con propósito</strong>
+              <span>Bienestar en cada bocado</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ GALERÍA / TESTIMONIOS ════════════════════ -->
+  <section class="gallery-section" id="galeria">
+    <div class="section-header">
+      <p class="section-eyebrow">La comunidad habla</p>
+      <h2 class="section-title">Amarena <em>en fotos</em></h2>
+    </div>
+
+    <div class="swiper testimonials-swiper">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+          <div class="testimonial-card">
+            <div class="test-img-placeholder test-img-1">🫙</div>
+            <blockquote>"El açaí bowl es simplemente el mejor de Siguatepeque. Fresco, lleno de sabor y te da energía para todo el día."</blockquote>
+            <cite>— María G. <span class="stars">★★★★★</span></cite>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="testimonial-card">
+            <div class="test-img-placeholder test-img-2">☕</div>
+            <blockquote>"El latte con leche de almendras es una experiencia. Se nota que el café es de origen, tiene un perfil increíble."</blockquote>
+            <cite>— Carlos M. <span class="stars">★★★★★</span></cite>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="testimonial-card">
+            <div class="test-img-placeholder test-img-3">🥪</div>
+            <blockquote>"Los sándwiches son enormes y deliciosos. Los ingredientes se sienten frescos. Ya es mi lugar favorito para almorzar."</blockquote>
+            <cite>— Andrea R. <span class="stars">★★★★★</span></cite>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="testimonial-card">
+            <div class="test-img-placeholder test-img-4">🥤</div>
+            <blockquote>"El green smoothie es mi ritual de cada mañana. Me encanta que usan proteína real y no edulcorantes artificiales."</blockquote>
+            <cite>— Laura P. <span class="stars">★★★★★</span></cite>
+          </div>
+        </div>
+
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- Instagram CTA -->
+    <div class="instagram-cta">
+      <a href="https://www.instagram.com/amarena_healthy" target="_blank" rel="noopener" class="ig-link">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+        </svg>
+        @amarena_healthy
+      </a>
+      <p>Síguenos en Instagram para recetas, nuevos productos y momentos del día a día.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ CONTACTO / UBICACIÓN ══════════════════════ -->
+  <section class="contact-section" id="contacto">
+    <div class="contact-inner">
+      <div class="contact-info">
+        <p class="section-eyebrow">Encuéntranos</p>
+        <h2 class="section-title">Ven a<br><em>visitarnos</em></h2>
+
+        <div class="contact-details">
+          <div class="contact-item">
+            <span class="contact-icon">📍</span>
+            <div>
+              <strong>Ubicación</strong>
+              <span>Baires Padel Club, Siguatepeque,<br>Francisco Morazán, Honduras</span>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-icon">📱</span>
+            <div>
+              <strong>WhatsApp</strong>
+              <a href="https://wa.me/50432749791" target="_blank" rel="noopener">3274-9791</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-icon">🕐</span>
+            <div>
+              <strong>Horario</strong>
+              <span>Lunes – Sábado: 7:00 AM – 6:00 PM<br>Domingo: 8:00 AM – 2:00 PM</span>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-icon">📸</span>
+            <div>
+              <strong>Instagram</strong>
+              <a href="https://www.instagram.com/amarena_healthy" target="_blank" rel="noopener">@amarena_healthy</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-ctas">
+          <a href="https://wa.me/50432749791?text=Hola%20Amarena%2C%20quiero%20hacer%20un%20pedido%20🌿"
+             class="btn-primary" target="_blank" rel="noopener">Hacer un Pedido</a>
+          <a href="https://maps.google.com/?q=Siguatepeque+Comayagua+Honduras"
+             class="btn-outline" target="_blank" rel="noopener">Cómo llegar</a>
+        </div>
+      </div>
+
+      <!-- Mapa embed estilizado -->
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30763.1!2d-87.836!3d14.599!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f6380f3e87a5555%3A0x2e5b9e0e0e0e0e0e!2sSiguatepeque%2C%20Honduras!5e0!3m2!1ses!2shn!4v1700000000000!5m2!1ses!2shn"
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Ubicación Amarena Healthy - Siguatepeque">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ FOOTER ════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">ama<span>rena</span></a>
+        <p>Comida con propósito.<br>Café 100% Hondureño.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#menu">Menú</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+        <a href="https://www.instagram.com/amarena_healthy" target="_blank" rel="noopener">Instagram</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/amarena_healthy" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram Amarena">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+          </svg>
+        </a>
+        <a href="https://wa.me/50432749791" target="_blank" rel="noopener" class="social-btn" aria-label="WhatsApp Amarena">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.126.554 4.118 1.521 5.845L0 24l6.335-1.501A11.951 11.951 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.01-1.378l-.36-.213-3.761.891.927-3.665-.234-.376A9.793 9.793 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182 17.42 2.182 21.818 6.58 21.818 12c0 5.42-4.398 9.818-9.818 9.818z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Amarena Healthy · Siguatepeque, Honduras · Hecho con 💚</p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp flotante -->
+  <a href="https://wa.me/50432749791?text=Hola%20Amarena%2C%20quiero%20hacer%20un%20pedido%20🌿"
+     class="wa-float" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.126.554 4.118 1.521 5.845L0 24l6.335-1.501A11.951 11.951 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.01-1.378l-.36-.213-3.761.891.927-3.665-.234-.376A9.793 9.793 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182 17.42 2.182 21.818 6.58 21.818 12c0 5.42-4.398 9.818-9.818 9.818z"/>
+    </svg>
+  </a>
+
+  <script src="main.js" defer></script>
+</body>
+</html>
