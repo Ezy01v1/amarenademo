@@ -1394,3 +1394,218 @@ cite {
 
   .section-title { font-size: 1.9rem; }
 }
+
+/* ═══════════════════════════════════════════════════
+   NUEVOS BLOQUES — vida extra: progress, filtros,
+   contadores, FAQ, volver arriba
+   ═══════════════════════════════════════════════════ */
+
+/* ── SCROLL PROGRESS BAR ────────────────────────────── */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--sage), var(--burgundy));
+  z-index: 9998;
+  transition: width 0.1s linear;
+}
+
+/* ── FILTROS DE MENÚ ─────────────────────────────────── */
+.menu-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 8px auto 40px;
+}
+
+.filter-chip {
+  padding: 10px 22px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--sage-light);
+  background: var(--white);
+  color: var(--text-mid);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: var(--transition-bounce);
+}
+
+.filter-chip:hover {
+  border-color: var(--sage);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+
+.filter-chip.active {
+  background: var(--sage-dark);
+  border-color: var(--sage-dark);
+  color: var(--cream);
+  box-shadow: var(--shadow-soft);
+}
+
+.menu-card.filtered-out {
+  display: none;
+}
+
+/* ── CONTADORES ──────────────────────────────────────── */
+.counters-section {
+  background: var(--sage-dark);
+  padding: 56px 5%;
+}
+
+.counters-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  text-align: center;
+}
+
+.counter-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: var(--cream);
+}
+
+.counter-num,
+.counter-suffix {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  line-height: 1;
+  color: var(--cream);
+}
+
+.counter-suffix {
+  display: inline;
+  margin-left: -6px;
+}
+
+.counter-item span:last-child {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--sage-light);
+  margin-top: 6px;
+}
+
+@media (max-width: 768px) {
+  .counters-inner { grid-template-columns: repeat(2, 1fr); row-gap: 40px; }
+}
+
+/* ── FAQ ACORDEÓN ────────────────────────────────────── */
+.faq-section {
+  padding: 100px 8%;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 40px;
+}
+
+.faq-item {
+  background: var(--white);
+  border: 1px solid var(--cream-dark);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.faq-item.open {
+  border-color: var(--sage);
+  box-shadow: var(--shadow-soft);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 26px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  text-align: left;
+}
+
+.faq-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--cream-dark);
+  color: var(--sage-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: var(--transition-bounce);
+}
+
+.faq-item.open .faq-icon {
+  background: var(--sage-dark);
+  color: var(--cream);
+  transform: rotate(135deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-answer p {
+  padding: 0 26px 22px;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-mid);
+}
+
+/* ── BOTÓN VOLVER ARRIBA ─────────────────────────────── */
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 96px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--sage-dark);
+  border: 1.5px solid var(--sage-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-soft);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: var(--transition-bounce);
+  z-index: 900;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: var(--sage-dark);
+  color: var(--cream);
+  transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+  .back-to-top { right: 16px; bottom: 84px; width: 42px; height: 42px; }
+  .faq-section { padding: 72px 5%; }
+  .faq-question { padding: 18px 20px; font-size: 0.92rem; }
+}

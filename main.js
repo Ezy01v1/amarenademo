@@ -54,7 +54,7 @@ window.addEventListener("load", () => {
   animateRing();
 
   // Escalar anillo en elementos interactivos
-  const interactives = document.querySelectorAll("a, button, .chip, .menu-card, .value-item");
+  const interactives = document.querySelectorAll("a, button, .chip, .menu-card, .value-item, .faq-question, .filter-chip");
   interactives.forEach((el) => {
     el.addEventListener("mouseenter", () => ring.style.transform = "translate(-50%, -50%) scale(1.8)");
     el.addEventListener("mouseleave", () => ring.style.transform = "translate(-50%, -50%) scale(1)");
@@ -463,6 +463,134 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
     window.scrollTo({ top, behavior: "smooth" });
   });
 });
+
+
+/* ────────────────────────────────────────────────────
+   SCROLL PROGRESS BAR + BOTÓN VOLVER ARRIBA
+────────────────────────────────────────────────────── */
+(function initScrollExtras() {
+  const bar = document.getElementById("scrollProgress");
+  const backBtn = document.getElementById("backToTop");
+
+  const onScroll = () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    if (bar) bar.style.width = pct + "%";
+    if (backBtn) backBtn.classList.toggle("show", scrollTop > 600);
+  };
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  if (backBtn) {
+    backBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+})();
+
+
+/* ────────────────────────────────────────────────────
+   FILTROS DE MENÚ
+────────────────────────────────────────────────────── */
+(function initMenuFilters() {
+  const filters = document.querySelectorAll("#menuFilters .filter-chip");
+  const cards = document.querySelectorAll("#menuGrid .menu-card");
+
+  if (!filters.length) return;
+
+  filters.forEach((chip) => {
+    chip.addEventListener("click", () => {
+      filters.forEach((c) => c.classList.remove("active"));
+      chip.classList.add("active");
+
+      const filter = chip.dataset.filter;
+
+      cards.forEach((card) => {
+        const match = filter === "all" || card.dataset.category === filter;
+
+        if (typeof gsap !== "undefined") {
+          if (match) {
+            card.classList.remove("filtered-out");
+            gsap.fromTo(card, { opacity: 0, y: 16, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "power2.out" });
+          } else {
+            gsap.to(card, {
+              opacity: 0, y: 10, scale: 0.96, duration: 0.25, ease: "power1.in",
+              onComplete: () => card.classList.add("filtered-out"),
+            });
+          }
+        } else {
+          card.classList.toggle("filtered-out", !match);
+        }
+      });
+    });
+  });
+})();
+
+
+/* ────────────────────────────────────────────────────
+   CONTADORES ANIMADOS (al entrar en viewport)
+────────────────────────────────────────────────────── */
+(function initCounters() {
+  const counters = document.querySelectorAll(".counter-num");
+  if (!counters.length) return;
+
+  const animateCounter = (el) => {
+    const target = parseInt(el.dataset.count, 10) || 0;
+    const duration = 1400;
+    const start = performance.now();
+
+    const step = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+      el.textContent = Math.floor(eased * target).toLocaleString("es-HN");
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = target.toLocaleString("es-HN");
+    };
+    requestAnimationFrame(step);
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.6 });
+
+  counters.forEach((el) => observer.observe(el));
+})();
+
+
+/* ────────────────────────────────────────────────────
+   FAQ ACORDEÓN
+────────────────────────────────────────────────────── */
+(function initFaq() {
+  const items = document.querySelectorAll(".faq-item");
+  if (!items.length) return;
+
+  items.forEach((item) => {
+    const question = item.querySelector(".faq-question");
+    const answer   = item.querySelector(".faq-answer");
+
+    question.addEventListener("click", () => {
+      const isOpen = item.classList.contains("open");
+
+      // Cerrar los demás (comportamiento tipo acordeón)
+      items.forEach((other) => {
+        other.classList.remove("open");
+        other.querySelector(".faq-answer").style.maxHeight = null;
+      });
+
+      if (!isOpen) {
+        item.classList.add("open");
+        answer.style.maxHeight = answer.scrollHeight + "px";
+      }
+    });
+  });
+})();
 
 
 /* ────────────────────────────────────────────────────

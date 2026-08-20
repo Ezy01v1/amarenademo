@@ -34,6 +34,9 @@
   <div class="cursor-dot" id="cursorDot"></div>
   <div class="cursor-ring" id="cursorRing"></div>
 
+  <!-- ═══════════════════════════════ SCROLL PROGRESS ══════════════════════════ -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
   <!-- ═══════════════════════════════ NAVBAR ══════════════════════════════════ -->
   <nav class="navbar" id="navbar">
     <a href="#" class="nav-logo">ama<span>rena</span></a>
@@ -46,6 +49,7 @@
       <li><a href="#menu">Menú</a></li>
       <li><a href="#nosotros">Nosotros</a></li>
       <li><a href="#galeria">Galería</a></li>
+      <li><a href="#faq">FAQ</a></li>
       <li><a href="#contacto">Contacto</a></li>
       <li>
         <a href="https://wa.me/50432749791?text=Hola%20Amarena%2C%20quiero%20hacer%20un%20pedido%20🌿"
@@ -136,6 +140,28 @@
     </div>
   </section>
 
+  <!-- ═══════════════════════════════ CONTADORES ═══════════════════════════════ -->
+  <section class="counters-section" data-reveal>
+    <div class="counters-inner">
+      <div class="counter-item">
+        <strong class="counter-num" data-count="4500">0</strong>
+        <span>Bowls servidos</span>
+      </div>
+      <div class="counter-item">
+        <strong class="counter-num" data-count="98">0</strong><span class="counter-suffix">%</span>
+        <span>Clientes felices</span>
+      </div>
+      <div class="counter-item">
+        <strong class="counter-num" data-count="120">0</strong><span class="counter-suffix">+</span>
+        <span>Bowls personalizados por semana</span>
+      </div>
+      <div class="counter-item">
+        <strong class="counter-num" data-count="3">0</strong>
+        <span>Años de propósito</span>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══════════════════════════════ MENÚ DESTACADO ═══════════════════════════ -->
   <section class="menu-section" id="menu">
     <div class="section-header">
@@ -143,7 +169,15 @@
       <h2 class="section-title">Nuestros <em>Favoritos</em></h2>
     </div>
 
-    <div class="menu-grid">
+    <div class="menu-filters" id="menuFilters" data-reveal>
+      <button class="filter-chip active" data-filter="all">Todo</button>
+      <button class="filter-chip" data-filter="bowl">🫙 Bowls</button>
+      <button class="filter-chip" data-filter="coffee">☕ Café</button>
+      <button class="filter-chip" data-filter="sandwich">🥪 Sándwiches</button>
+      <button class="filter-chip" data-filter="smoothie">🥤 Smoothies</button>
+    </div>
+
+    <div class="menu-grid" id="menuGrid">
 
       <div class="menu-card" data-category="bowl">
         <div class="menu-card-img">
@@ -420,6 +454,66 @@
     </div>
   </section>
 
+  <!-- ═══════════════════════════════ FAQ ═══════════════════════════════════════ -->
+  <section class="faq-section" id="faq">
+    <div class="section-header" data-reveal>
+      <p class="section-eyebrow">Dudas frecuentes</p>
+      <h2 class="section-title">Preguntas <em>y respuestas</em></h2>
+    </div>
+
+    <div class="faq-list" data-reveal>
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>¿Hacen entregas a domicilio?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Sí, coordinamos entregas dentro de Siguatepeque escribiéndonos directo por WhatsApp. También puedes recoger tu pedido en el local dentro de Baires Padel Club.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>¿Tienen opciones sin gluten o veganas?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Claro que sí 🌿 Varios de nuestros bowls y smoothies son veganos, y contamos con opciones sin gluten disponibles bajo pedido.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>¿Puedo personalizar mi bowl completamente?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Totalmente. Usa nuestro creador de bowls arriba en la sección "Arma tu Bowl Perfecto" y mándanos tu combinación directo por WhatsApp.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>¿De dónde viene el café que usan?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Trabajamos con café 100% hondureño de altura, tostado en pequeños lotes para asegurar frescura y un perfil de sabor consistente en cada taza.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>¿Cuál es el horario de atención?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Lunes a sábado de 7:00 AM a 6:00 PM, y domingos de 8:00 AM a 2:00 PM. ¡Te esperamos!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══════════════════════════════ CONTACTO / UBICACIÓN ══════════════════════ -->
   <section class="contact-section" id="contacto">
     <div class="contact-inner">
@@ -515,6 +609,13 @@
       <p>© 2025 Amarena Healthy · Siguatepeque, Honduras · Hecho con 💚</p>
     </div>
   </footer>
+
+  <!-- Volver arriba -->
+  <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
 
   <!-- WhatsApp flotante -->
   <a href="https://wa.me/50432749791?text=Hola%20Amarena%2C%20quiero%20hacer%20un%20pedido%20🌿"
