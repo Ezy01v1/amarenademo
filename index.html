@@ -4,6 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Amarena Healthy — Comida con Propósito</title>
+  <meta name="description" content="Amarena Healthy — Bowls, smoothies, sándwiches y café de especialidad 100% hondureño en Siguatepeque." />
+
+  <!-- Favicon (logo sin fondo) -->
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
+  <meta name="theme-color" content="#F5F0E8" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,7 +33,7 @@
   <!-- ═══════════════════════════════ PRELOADER ═══════════════════════════════ -->
   <div id="preloader">
     <div class="preloader-inner">
-      <div class="preloader-leaf">🌿</div>
+      <img src="img/logo-192.png" alt="Amarena" class="preloader-logo" width="80" height="80" />
       <p class="preloader-text">ama<span>rena</span></p>
     </div>
   </div>
@@ -39,7 +47,10 @@
 
   <!-- ═══════════════════════════════ NAVBAR ══════════════════════════════════ -->
   <nav class="navbar" id="navbar">
-    <a href="#" class="nav-logo">ama<span>rena</span></a>
+    <a href="#" class="nav-logo">
+      <img src="img/logo-192.png" alt="Amarena" class="nav-logo-img" />
+      ama<span>rena</span>
+    </a>
 
     <button class="nav-toggle" id="navToggle" aria-label="Menú">
       <span></span><span></span><span></span>
@@ -121,9 +132,8 @@
 
     <div class="hero-image-container" id="heroImage">
       <div class="hero-image-frame">
-        <!-- Placeholder visual con gradiente orgánico -->
         <div class="hero-image-placeholder">
-          <div class="hero-blob-img"></div>
+          <img src="img/smoothie-verde.jpg" alt="Smoothie Amarena" class="hero-photo" />
           <div class="floating-badge badge-top">
             <span>☕</span> Café de<br>Especialidad
           </div>
@@ -181,9 +191,7 @@
 
       <div class="menu-card" data-category="bowl">
         <div class="menu-card-img">
-          <div class="menu-img-placeholder bowl-img">
-            <span class="menu-emoji">🫙</span>
-          </div>
+          <img src="img/bowl-acai.jpg" alt="Açaí Power Bowl" class="menu-photo" />
           <div class="menu-tag">⭐ Más Pedido</div>
         </div>
         <div class="menu-card-body">
@@ -201,9 +209,7 @@
 
       <div class="menu-card featured" data-category="coffee">
         <div class="menu-card-img">
-          <div class="menu-img-placeholder coffee-img">
-            <span class="menu-emoji">☕</span>
-          </div>
+          <img src="img/sandwich-cafe.jpg" alt="Latte Amarena" class="menu-photo photo-focus-coffee" />
           <div class="menu-tag">🏆 Firma</div>
         </div>
         <div class="menu-card-body">
@@ -221,9 +227,7 @@
 
       <div class="menu-card" data-category="sandwich">
         <div class="menu-card-img">
-          <div class="menu-img-placeholder sandwich-img">
-            <span class="menu-emoji">🥪</span>
-          </div>
+          <img src="img/sandwich-cafe.jpg" alt="Sándwich Verde" class="menu-photo photo-focus-sandwich" />
           <div class="menu-tag">🔥 Trending</div>
         </div>
         <div class="menu-card-body">
@@ -241,9 +245,7 @@
 
       <div class="menu-card" data-category="smoothie">
         <div class="menu-card-img">
-          <div class="menu-img-placeholder smoothie-img">
-            <span class="menu-emoji">🥤</span>
-          </div>
+          <img src="img/wellness-smoothies.jpg" alt="Green Goddess Smoothie" class="menu-photo" />
           <div class="menu-tag">✨ Wellness</div>
         </div>
         <div class="menu-card-body">
@@ -344,7 +346,7 @@
       <div class="about-image-side">
         <div class="about-img-frame">
           <div class="about-img-placeholder">
-            <div class="about-stamp">ama<br>rena</div>
+            <img src="img/frutas-frescas.jpg" alt="Ingredientes frescos Amarena" class="about-photo" />
           </div>
         </div>
         <div class="about-tag-float">
@@ -407,8 +409,15 @@
       <div class="swiper-wrapper">
 
         <div class="swiper-slide">
+          <div class="testimonial-card video-card">
+            <video class="gallery-video" src="img/menu-loop.mp4" autoplay muted loop playsinline></video>
+            <p class="video-card-caption">Así preparamos cada pedido 🌿</p>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
           <div class="testimonial-card">
-            <div class="test-img-placeholder test-img-1">🫙</div>
+            <img src="img/bowl-acai.jpg" alt="" class="test-img-placeholder" />
             <blockquote>"El açaí bowl es simplemente el mejor de Siguatepeque. Fresco, lleno de sabor y te da energía para todo el día."</blockquote>
             <cite>— María G. <span class="stars">★★★★★</span></cite>
           </div>
@@ -416,7 +425,7 @@
 
         <div class="swiper-slide">
           <div class="testimonial-card">
-            <div class="test-img-placeholder test-img-2">☕</div>
+            <img src="img/sandwich-cafe.jpg" alt="" class="test-img-placeholder photo-focus-coffee" />
             <blockquote>"El latte con leche de almendras es una experiencia. Se nota que el café es de origen, tiene un perfil increíble."</blockquote>
             <cite>— Carlos M. <span class="stars">★★★★★</span></cite>
           </div>
@@ -424,7 +433,7 @@
 
         <div class="swiper-slide">
           <div class="testimonial-card">
-            <div class="test-img-placeholder test-img-3">🥪</div>
+            <img src="img/sandwich-cafe.jpg" alt="" class="test-img-placeholder photo-focus-sandwich" />
             <blockquote>"Los sándwiches son enormes y deliciosos. Los ingredientes se sienten frescos. Ya es mi lugar favorito para almorzar."</blockquote>
             <cite>— Andrea R. <span class="stars">★★★★★</span></cite>
           </div>
@@ -432,7 +441,7 @@
 
         <div class="swiper-slide">
           <div class="testimonial-card">
-            <div class="test-img-placeholder test-img-4">🥤</div>
+            <img src="img/smoothie-verde.jpg" alt="" class="test-img-placeholder" />
             <blockquote>"El green smoothie es mi ritual de cada mañana. Me encanta que usan proteína real y no edulcorantes artificiales."</blockquote>
             <cite>— Laura P. <span class="stars">★★★★★</span></cite>
           </div>
@@ -583,7 +592,10 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <a href="#" class="nav-logo">ama<span>rena</span></a>
+        <a href="#" class="nav-logo">
+          <img src="img/logo-192.png" alt="Amarena" class="nav-logo-img" />
+          ama<span>rena</span>
+        </a>
         <p>Comida con propósito.<br>Café 100% Hondureño.</p>
       </div>
       <div class="footer-links">

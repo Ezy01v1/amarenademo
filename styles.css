@@ -113,17 +113,18 @@ body:has(.chip:hover) .cursor-ring {
   text-align: center;
 }
 
-.preloader-leaf {
-  font-size: 3rem;
-  animation: leafSpin 1.4s ease-in-out infinite;
+.preloader-logo {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  animation: logoPulse 1.4s ease-in-out infinite;
   display: block;
-  margin-bottom: 12px;
+  margin: 0 auto 12px;
 }
 
-@keyframes leafSpin {
-  0%   { transform: rotate(-15deg) scale(0.9); }
-  50%  { transform: rotate(15deg) scale(1.1); }
-  100% { transform: rotate(-15deg) scale(0.9); }
+@keyframes logoPulse {
+  0%, 100% { transform: scale(0.92); }
+  50%      { transform: scale(1.05); }
 }
 
 .preloader-text {
@@ -269,9 +270,19 @@ body:has(.chip:hover) .cursor-ring {
   font-size: 1.6rem;
   color: var(--text-dark);
   font-style: italic;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .nav-logo span { color: var(--burgundy); }
+
+.nav-logo-img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  display: block;
+}
 
 .nav-links {
   display: flex;
@@ -516,24 +527,12 @@ body:has(.chip:hover) .cursor-ring {
   50%       { transform: translateY(-12px); }
 }
 
-.hero-blob-img {
-  width: 80%;
-  height: 80%;
+.hero-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: inherit;
-  background:
-    radial-gradient(ellipse 60% 70% at 40% 35%, rgba(122,158,126,0.6) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 60% at 70% 70%, rgba(122,37,53,0.15) 0%, transparent 60%),
-    linear-gradient(160deg, rgba(168,197,160,0.8) 0%, rgba(245,240,232,0.9) 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 7rem;
-}
-
-.hero-blob-img::after {
-  content: '🥗';
-  font-size: 7rem;
-  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.1));
+  display: block;
 }
 
 /* Badges flotantes */
@@ -651,19 +650,20 @@ body:has(.chip:hover) .cursor-ring {
   overflow: hidden;
 }
 
-.menu-img-placeholder {
-  width: 100%; height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.menu-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition);
 }
 
-.bowl-img       { background: linear-gradient(135deg, #E8D5C4, #F5CDD7); }
-.coffee-img     { background: linear-gradient(135deg, #C9A882, #E8D5C4); }
-.sandwich-img   { background: linear-gradient(135deg, #C8D8C0, #E8EDD0); }
-.smoothie-img   { background: linear-gradient(135deg, #C0D8C8, #D0E8C0); }
+.menu-card:hover .menu-photo {
+  transform: scale(1.06);
+}
 
-.menu-emoji { font-size: 4rem; }
+.photo-focus-coffee   { object-position: 78% 35%; }
+.photo-focus-sandwich { object-position: 15% 65%; }
 
 .menu-tag {
   position: absolute;
@@ -924,17 +924,12 @@ body:has(.chip:hover) .cursor-ring {
   overflow: hidden;
 }
 
-.about-stamp {
-  font-family: var(--font-display);
-  font-size: 3.2rem;
-  font-style: italic;
-  color: var(--white);
-  text-align: center;
-  line-height: 1;
-  text-shadow: 0 4px 20px rgba(0,0,0,0.15);
+.about-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
-
-.about-stamp em { color: var(--cream); }
 
 .about-tag-float {
   position: absolute;
@@ -1036,17 +1031,33 @@ body:has(.chip:hover) .cursor-ring {
 .test-img-placeholder {
   width: 80px; height: 80px;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
+  object-fit: cover;
+  display: block;
   margin: 0 auto;
+  border: 3px solid var(--cream);
+  box-shadow: var(--shadow-soft);
 }
 
-.test-img-1 { background: linear-gradient(135deg, #E8D5C4, #F5CDD7); }
-.test-img-2 { background: linear-gradient(135deg, #C9A882, #E8D5C4); }
-.test-img-3 { background: linear-gradient(135deg, #C8D8C0, #E8EDD0); }
-.test-img-4 { background: linear-gradient(135deg, #C0D8C8, #D0E8C0); }
+/* Tarjeta de video en el carrusel de galería */
+.video-card {
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-video {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  display: block;
+}
+
+.video-card-caption {
+  font-size: 0.82rem;
+  color: var(--text-mid);
+  text-align: center;
+  font-style: italic;
+}
 
 blockquote {
   font-size: 0.88rem;
