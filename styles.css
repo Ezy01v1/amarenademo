@@ -1460,7 +1460,7 @@ cite {
   display: none;
 }
 
-/* ── CONTADORES ──────────────────────────────────────── */
+/* ── CONTADORES ──────────────────────────────────────── 
 .counters-section {
   background: var(--sage-dark);
   padding: 56px 5%;
@@ -1505,7 +1505,7 @@ cite {
 
 @media (max-width: 768px) {
   .counters-inner { grid-template-columns: repeat(2, 1fr); row-gap: 40px; }
-}
+} */
 
 /* ── FAQ ACORDEÓN ────────────────────────────────────── */
 .faq-section {

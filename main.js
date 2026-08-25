@@ -531,7 +531,7 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
 
 /* ────────────────────────────────────────────────────
    CONTADORES ANIMADOS (al entrar en viewport)
-────────────────────────────────────────────────────── */
+────────────────────────────────────────────────────── *
 (function initCounters() {
   const counters = document.querySelectorAll(".counter-num");
   if (!counters.length) return;
@@ -562,7 +562,7 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
 
   counters.forEach((el) => observer.observe(el));
 })();
-
+*/
 
 /* ────────────────────────────────────────────────────
    FAQ ACORDEÓN
