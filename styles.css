@@ -664,6 +664,7 @@ body:has(.chip:hover) .cursor-ring {
 
 .photo-focus-coffee   { object-position: 78% 35%; }
 .photo-focus-sandwich { object-position: 15% 65%; }
+.photo-focus-smoothie { object-position: 75% 40%; }
 
 .menu-tag {
   position: absolute;
@@ -1459,53 +1460,6 @@ cite {
 .menu-card.filtered-out {
   display: none;
 }
-
-/* ── CONTADORES ──────────────────────────────────────── 
-.counters-section {
-  background: var(--sage-dark);
-  padding: 56px 5%;
-}
-
-.counters-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
-  text-align: center;
-}
-
-.counter-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  color: var(--cream);
-}
-
-.counter-num,
-.counter-suffix {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 2.75rem);
-  line-height: 1;
-  color: var(--cream);
-}
-
-.counter-suffix {
-  display: inline;
-  margin-left: -6px;
-}
-
-.counter-item span:last-child {
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  color: var(--sage-light);
-  margin-top: 6px;
-}
-
-@media (max-width: 768px) {
-  .counters-inner { grid-template-columns: repeat(2, 1fr); row-gap: 40px; }
-} */
 
 /* ── FAQ ACORDEÓN ────────────────────────────────────── */
 .faq-section {

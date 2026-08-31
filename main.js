@@ -530,41 +530,6 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
 
 
 /* ────────────────────────────────────────────────────
-   CONTADORES ANIMADOS (al entrar en viewport)
-────────────────────────────────────────────────────── *
-(function initCounters() {
-  const counters = document.querySelectorAll(".counter-num");
-  if (!counters.length) return;
-
-  const animateCounter = (el) => {
-    const target = parseInt(el.dataset.count, 10) || 0;
-    const duration = 1400;
-    const start = performance.now();
-
-    const step = (now) => {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-      el.textContent = Math.floor(eased * target).toLocaleString("es-HN");
-      if (progress < 1) requestAnimationFrame(step);
-      else el.textContent = target.toLocaleString("es-HN");
-    };
-    requestAnimationFrame(step);
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        animateCounter(entry.target);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.6 });
-
-  counters.forEach((el) => observer.observe(el));
-})();
-*/
-
-/* ────────────────────────────────────────────────────
    FAQ ACORDEÓN
 ────────────────────────────────────────────────────── */
 (function initFaq() {
